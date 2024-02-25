@@ -66,10 +66,32 @@
             width: 188;
             height: 40;
             font-size: large;
+            opacity: 1;
+            
+        }
+
+        button:hover{
+            color: white;
+            background-color: black;
+            opacity: 1
         }
         
+        button:active{
+            color: white;
+            background-color: black;
+            opacity:0.6;
+        }
+
         #joinB {
             margin-left: 20%;
+        }
+
+        .text{
+            border: none;
+            outline: none;
+            border-bottom: 1px solid black;
+            text-align: center;
+            font-size: large;
         }
 
      
@@ -89,9 +111,9 @@
     <div id="right-half">
         <div id="container">
             <div id="login">
-                <input type="text" placeholder="Username" required>
+                <input class="text" type="text" placeholder="Username" required>
                 <br>
-                <input type="password" placeholder="Password">
+                <input class="text" type="password" placeholder="Password" required>
                 <br>
 
                 <button>Sign in</button>
