@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
     <title>Dashboard</title>
     <style>
             body{
                 width: 100vw;
                 height: 100vh;
-            
+
                 padding: 0;
                 margin: 0;
                 background-color:#F7E16B;
-                
-                
+                font-family: "Inter", sans-serif;
                 overflow: hidden; 
             }
 
@@ -107,7 +108,10 @@
                 opacity:0.6;
             }
 
+            a{
+                text-decoration: none;
 
+            }
             
 
     </style>
@@ -120,9 +124,9 @@
     </div>
 
     <div id="content">
-        <div id="CITY" class="content-nav">Take the CITY quiz</div>
-        <div id="FLAG" class="content-nav">Take the FLAG quiz </div>
-        <div id="COUNTRY" class="content-nav">Take the COUNTRY quiz</div>
+        <a id="CITY" class="content-nav" href="cityQ.html">Take the CITY quiz</a>
+        <button id="FLAG" class="content-nav">Take the FLAG quiz </button>
+        <button id="COUNTRY" class="content-nav">Take the COUNTRY quiz</button>
     </div>
 </body>
 </html>
