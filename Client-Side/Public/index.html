@@ -1,0 +1,135 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <title>Home Page</title>
+    <style>
+        body{
+            background-color:#F7E16B;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100%;
+            display: grid;
+            grid-template-rows: 1;
+            grid-template-columns: 2;
+            font-family: "Inter", sans-serif;
+            
+        }
+
+        #right-half{
+            display: flex;
+            flex-direction: column;
+            
+           /* background-color: green; */
+            grid-column: 2;
+            height: 100vh;
+            width: 100%;
+        }
+
+        img {
+            display: flex;
+            grid-column: 1;
+            height: 100vh;
+            width: 100%;
+            object-fit:cover;
+        }
+           
+      
+        #container {
+            display: grid;
+            place-items: center;
+            height: 80%;
+            width: 50vw;
+            border: 0px red solid;
+            object-fit: none;
+
+        }
+
+        #login{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80%;
+            width: 60%;
+            background-color: white;
+            border-radius: 200px 200px 0px 0px
+        }
+        
+        button{
+            background-color: white;
+            border: 1px solid black;
+            width: 188;
+            height: 40;
+            font-size: large;
+            opacity: 1;
+            
+        }
+
+        button:hover{
+            color: white;
+            background-color: black;
+            opacity: 1
+        }
+        
+        button:active{
+            color: white;
+            background-color: black;
+            opacity:0.6;
+        }
+
+        #joinB {
+            margin-left: 20%;
+        }
+
+        .text{
+            border: none;
+            outline: none;
+            border-bottom: 1px solid black;
+            text-align: center;
+            font-size: large;
+        }
+
+     
+
+
+    </style>
+</head>
+
+<body>
+    
+    
+ 
+    <img src="Earthv4.png" alt="">
+        
+        
+   
+    <div id="right-half">
+        <div id="container">
+            <div id="login">
+                <input class="text" type="text" placeholder="Username" required>
+                <br>
+                <input class="text" type="password" placeholder="Password" required>
+                <br>
+
+                <button>Sign in</button>
+                <br>
+                <button>Reset Password</button>
+            
+
+            </div>
+           
+
+        
+        </div>
+        <button id="joinB"> Join now</button>
+    </div>
+   
+<script src="main.js">
+</script>    
+</body>
+</html>
