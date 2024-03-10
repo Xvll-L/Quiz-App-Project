@@ -21,8 +21,8 @@ const db = mysql.createConnection({
     if(error){
         console.error("query error" + error)
     }
-    const text = results[5]
-    console.log(text.cityname)
+    const text = results;
+    console.log(results);
   });
 // send sql server to api
   module.exports = db;
