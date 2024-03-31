@@ -4,6 +4,19 @@ const count = document.querySelector("#count");
 const buttons = document.querySelectorAll(".answers-box");
 //console.log(buttons);
 
+//City flashcards
+
+const test [ 
+    {
+        country: "England",
+        qustion1: "London",
+        qustion2: "Paris",
+        qustion3: "tokyo",
+        qustion4: "any",
+    }
+];
+
+
 /*
 function edittest(){
    const words = count.innerHTML.split("")

@@ -4,7 +4,7 @@ use quiz;
 
 CREATE TABLE Quiz (
     QuizID INT PRIMARY KEY,
-    difficultyLevel VARCHAR(50),
+    difficultyLevel VARCHAR(255),
     score INT
 );
 
@@ -13,7 +13,7 @@ CREATE TABLE question (
     QuizID INT,
     Answers INT,
     FlagID INT,
-    City VARCHAR(100),
+    City VARCHAR(255),
     CountryID INT,
     image VARCHAR(255),
     questionText VARCHAR(255),
@@ -29,19 +29,19 @@ CREATE TABLE Country (
 CREATE TABLE Answers (
     Answers_ID INT PRIMARY KEY,
     questionID INT,
-    correctAnswer VARCHAR(100),
+    correctAnswer VARCHAR(255),
     FOREIGN KEY (questionID) REFERENCES question(questionID)
 );
 
 CREATE TABLE Flag (
     FlagID INT PRIMARY KEY,
-    flagName VARCHAR(100)
+    flagName VARCHAR(255)
     /*flagImage VARCHAR(255)*/
 );
 
 CREATE TABLE City (
     cityID INT PRIMARY KEY,
-    cityName VARCHAR(100)
+    cityName VARCHAR(255)
   
 );
 
