@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <title>City quiz</title>
+    <Style>
+        body{
+            width: 100vw;
+            height: 100vh;
+
+            padding: 0;
+            margin: 0;
+            background-color:#F7E16B;
+            font-family: "Inter", sans-serif;
+            overflow: hidden; 
+            display: grid;
+            place-items: center;
+        }
+
+        #qustions{
+            height: 400px;
+            width: 500px;
+            background-color: white;
+            border: 1px solid black;
+            display: grid;
+            place-items: center;
+        }
+
+        #answers{
+            border: 0px solid red; 
+            width: 500px;
+            height: 210px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .answers-box{
+            width: 500px;
+            height: 40px;
+            background-color: white;
+            border: 1px solid black;
+            font-size: large;
+            opacity: 1;
+            display: grid;
+            place-items: center;
+                
+        }
+
+        .answers-box:hover{
+            color: white;
+            background-color: black;
+            opacity: 1
+        }
+            
+        .answers-box:active{
+            color: white;
+            background-color: black;
+            opacity:0.6;
+        }
+
+    </Style>
+</head>
+<body>      
+    <div>
+        <h3 id="count" style="color: white; font-size: 40px;">City quiz - 1/8</h3>
+    </div>
+
+    <div id="qustions"> 
+       
+    </div>
+
+    <div id="answers">
+        <button id="A1" class="answers-box">A)  Paris</button>
+        <button id="A2" class="answers-box">B)  Paris</button>
+        <button id="A3" class="answers-box">C)  Paris</button>
+        <button id="A4" class="answers-box">D)  Paris</button>
+
+    </div>
+ <script src="main.js">
+</script> 
+</body>
+</html>
