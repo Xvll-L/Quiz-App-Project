@@ -12,7 +12,10 @@ app.listen(port, () => {
 ///calls api from staitic page
 const api = require('./api');
 app.use('/api', api);
-app.get("/cityQ", (req, res) => {
+
+
+//api test
+/*app.get("/cityQ", (req, res) => {
   const sql = 'SELECT c.CountryName, ci.cityname FROM Country c JOIN City ci ON ci.cityID = c.CountryID ORDER BY RAND() LIMIT 4;';
 
   db.query(sql, (error, results) => {
@@ -29,7 +32,7 @@ app.get("/cityQ", (req, res) => {
       res.json(citydata);
     }
   });
-});
+});*/
 
 
 

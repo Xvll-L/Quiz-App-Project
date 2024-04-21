@@ -22,7 +22,7 @@ app.get("/cityQ", (req, res) => {
         CountryName: result.CountryName,
         Cityname: result.cityname
       }));
-      console.log("City Data:", citydata);
+      console.log("###########    City Data: send   ", citydata, "    ###########");
       res.json(citydata);
     }
   });
