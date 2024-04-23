@@ -1,5 +1,10 @@
-Create database quiz;
+/*Create database quiz;*/
 use quiz;
+CREATE TABLE user (
+    userID int NOT NULL AUTO_INCREMENT,
+    userName VARCHAR(255),
+    score INT
+);
 
 
 CREATE TABLE Quiz (
@@ -27,7 +32,7 @@ CREATE TABLE Country (
 );
 
 CREATE TABLE Answers (
-    Answers_ID INT PRIMARY KEY,
+    AnswersID INT PRIMARY KEY,
     questionID INT,
     correctAnswer VARCHAR(255),
     FOREIGN KEY (questionID) REFERENCES question(questionID)
@@ -39,14 +44,15 @@ CREATE TABLE Flag (
     /*flagImage VARCHAR(255)*/
 );
 
+
 CREATE TABLE City (
     cityID INT PRIMARY KEY,
     cityName VARCHAR(255)
   
 );
 
-/*INSERT INTO Question (questionID, QuizID, Answers, FlagID, City, CountryID, questionText)
-VALUES (1, 1, 1, 1, 'London', 1, 'What is the capital city of England?');*/
+/*INSERT INTO Question (UserID,questionID, QuizID, Answers, FlagID, City, CountryID, questionText)
+VALUES (1, 1, 1, 1, 1, 'London', 1,);*/
 
 
 
@@ -554,4 +560,11 @@ VALUES
 select CountryName, cityname from Country
 INNER JOIN City on City.cityID  = Country.CountryID
 where City.cityID  > 200;
+
+
+SELECT c.CountryName, ci.cityname
+FROM Country c
+INNER JOIN City ci ON ci.cityID = c.CountryID
+ORDER BY RAND()
+LIMIT 4;
 

@@ -9,6 +9,20 @@ app.listen(port, () => {
   error.console("Server not runniing: " + error)
 });
 
+// Index/ Login page data.
+app.get('/Login', (req,res) => {
+  const username = req.query.Username
+  const password = req.query.Password
+  console.log("######## Username " + username + " Passwrod " + password)
+})
+
+//Registration data
+app.get('/newacc', (req,res) => {
+  const username = req.query.Username
+  const password = req.query.Password
+  console.log("######## Username " + username + " Passwrod " + password)
+})
+
 ///calls api from staitic page
 const api = require('./api');
 app.use('/api', api);

@@ -24,7 +24,7 @@
             height: 200px;
             width: 500px;
             background-color: white;
-            border: 1px solid black;
+          
             display: grid;
             place-items: center;
         }
@@ -62,17 +62,24 @@
             opacity:0.6;
         }
 
+        img {
+            object-fit: cover;
+            border: 1px solid black;
+        }
+
     </Style>
 </head>
 <body>      
     <div>
         <h3 id="count" style="color: white; font-size: 40px;">City quiz - 1/8</h3>
+
+        
     </div>
 
     <div id="qustions"> 
-        <h2>What is the capital city of England</h2>
+        <img src="flagIMG/Flag_of_Portugal.svg" width="500" />
     </div>
-
+    <br>
     <div id="answers">
         <button id="A1" class="answers-box">A)  Paris</button>
         <button id="A2" class="answers-box">B)  Paris</button>
@@ -80,6 +87,7 @@
         <button id="A4" class="answers-box">D)  Paris</button>
 
     </div>
+    <button id="next-flag" class="answers-box" style=" width: 120px;">Next</button>
  <script src="main.js">
 </script> 
 </body>

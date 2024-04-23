@@ -4,7 +4,7 @@ const buttons = document.querySelectorAll(".answers-box");
 const countryNameElement = document.getElementById('country-name');
 const answerButtonsElements = document.querySelectorAll('.answers-box');
 
-// Function to fetch a new question and update the answer options
+// Function to fetch a new question and update the answer options for cityQ
 function fetchQuestion() {
   fetch('http://localhost:8080/api/cityQ')
     .then(response => response.json())
@@ -42,7 +42,7 @@ function fetchQuestion() {
       console.log('Shuffled answersOptions:', answersOptions);
       console.log('answersOptions[0] after shuffling:', answersOptions[0]);
 
-      // Update the answer buttons with the shuffled options
+      // Update the answer buttons with the shuffled options (Fisher–Yates shuffle algos)
       answerButtonsElements.forEach((button, index) => {
         button.textContent = answersOptions[index];
         button.dataset.correct = (answersOptions[index] === country.CityName);
@@ -51,6 +51,8 @@ function fetchQuestion() {
     .catch(error => {
       console.log('Error:', error);
     });
+
+    
 }
 
 let i = 0;
