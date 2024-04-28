@@ -1,8 +1,10 @@
+
 // quiz page
-const count = document.querySelector("#count");
-const buttons = document.querySelectorAll(".answers-box");
+const countCity = document.querySelector("#count-city");
+const scoreCity = document.querySelector("#score-city");
+const answersButtonsCity = document.querySelectorAll(".answers-box");
 const countryNameElement = document.getElementById('country-name');
-const answerButtonsElements = document.querySelectorAll('.answers-box');
+
 
 // Function to fetch a new question and update the answer options for cityQ
 function fetchQuestion() {
@@ -43,9 +45,9 @@ function fetchQuestion() {
       console.log('answersOptions[0] after shuffling:', answersOptions[0]);
 
       // Update the answer buttons with the shuffled options (Fisher–Yates shuffle algos)
-      answerButtonsElements.forEach((button, index) => {
+      answersButtonsCity.forEach((button, index) => {
         button.textContent = answersOptions[index];
-        button.dataset.correct = (answersOptions[index] === country.CityName);
+        button.dataset.correct = (answersOptions[index] === country.Cityname);
       });
     })
     .catch(error => {
@@ -55,8 +57,11 @@ function fetchQuestion() {
     
 }
 
+
+
+
 let i = 0;
-buttons.forEach(button => {
+answersButtonsCity.forEach(button => {
   button.addEventListener("click", function(e) {
     console.log(e.target);
     if (i < 8) {
@@ -70,3 +75,14 @@ buttons.forEach(button => {
 
 // Fetch the first question when the page loads
 fetchQuestion();
+
+function fetchFlags() {
+  fetch('http://localhost:8080/api/flagQ')
+    .then(response => response.json)
+    .then(data => {
+
+    })
+    .catch(error => {
+      console.log('Error:', error)
+    })
+}

@@ -10,7 +10,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/cityQ", (req, res) => {
-  const sql = 'SELECT c.CountryName, ci.cityname FROM Country c JOIN City ci ON ci.cityID = c.CountryID ORDER BY RAND() LIMIT 4;';
+  const sql = 'SELECT c.CountryName, ci.cityname FROM Country c JOIN City ci ON ci.cityID = c.CountryID ORDER BY RAND() LIMIT 4; ';
 
   db.query(sql, (error, results) => {
     if (error) {
@@ -29,8 +29,28 @@ app.get("/cityQ", (req, res) => {
 });
 
 
-//test cityQ endpoint
-/*app.get('/cityQ', (req, res) => {
+app.get('/flagQ', (req, res) => {
+  const sql = 'SELECT * FROM Flag ORDER BY RAND() LIMIT 4;'; 
+
+  db.query(sql, (error, results) => {
+    if (error) {
+      console.error("Query error: " + error);
+      res.status(500).json({ error: 'Internal server error' });
+    } else {
+      console.log("Results:", results);
+      const flagData = results.map(result => ({
+        FlagID: result.FlagID,
+        FlagName: result.flagName,
+        flagImage: result.flagImage
+      }));
+      console.log("Flag Data:", flagData);
+      res.json(flagData);
+    }
+  });
+});
+
+//test cityQ, flagq and countryQ.html endpoint
+/*app.get('/flagQ', (req, res) => {
   //test endpoint
 
   res.json({
@@ -38,5 +58,7 @@ app.get("/cityQ", (req, res) => {
     test: "wrtwt"
   });
 });*/
+
+
 
 module.exports = app;
