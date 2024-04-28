@@ -74,15 +74,27 @@ answersButtonsCity.forEach(button => {
 });
 
 // Fetch the first question when the page loads
-fetchQuestion();
+const cityLink = document.getElementById('CITY');
+
+cityLink.addEventListener('click', function() {
+  fetchQuestion(); 
+});
+
 
 function fetchFlags() {
   fetch('http://localhost:8080/api/flagQ')
     .then(response => response.json)
     .then(data => {
+        asmersFlag = data;
 
+        console.log(asmersFlag)
     })
     .catch(error => {
       console.log('Error:', error)
     })
 }
+const flagLink = document.getElementById('FLAG');
+
+flagQuizLink.addEventListener('click', function() {
+  fetchFlags(); 
+});
