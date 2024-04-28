@@ -133,8 +133,63 @@ answersButtonsFlag.forEach(button => {
 });
 
 
+const countCountry = document.querySelector("#count-country");
+//const scoreCountry
+const answersButtonsCountry = document.querySelectorAll(".answers-box-country");
+const countryImageElement = document.querySelector('#countryImage');
 
+function fetchCountryQuestion() {
+  fetch('http://localhost:8080/api/countryQ')
+    .then(response => response.json())
+    .then(data => {
+      console.log('API response:', data);
+      const country = data[0];
+      console.log('Selected country:', country);
+      console.log('Country name:', country.CountryName);
+      console.log('Country image:', country.CountryImage);
 
+      countryImageElement.src = 'countryIMG/' + country.CountryImage;
+
+      const countryAnswersOptions = [
+        country.CountryName,
+        data[1].CountryName,
+        data[2].CountryName,
+        data[3].CountryName
+      ];
+
+      // Shuffle the answer options randomly
+      for (let i = countryAnswersOptions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [countryAnswersOptions[i], countryAnswersOptions[j]] = [countryAnswersOptions[j], countryAnswersOptions[i]];
+      }
+
+      console.log('Shuffled answersOptions:', countryAnswersOptions);
+      console.log('answersOptions[0] after shuffling:', countryAnswersOptions[0]);
+
+      // Update the answer buttons with the shuffled options
+      answersButtonsCountry.forEach((button, index) => {
+        button.textContent = countryAnswersOptions[index];
+        button.dataset.correct = (countryAnswersOptions[index] === country.CountryName);
+      });
+    })
+    .catch(error => {
+      console.log('Error:', error);
+    });
+}
+
+let c = 0;
+answersButtonsCountry.forEach(button => {
+  button.addEventListener("click", function(e) {
+    console.log(e.target);
+    if (c < 8) {
+      c++;
+      countCountry.textContent = `Country quiz - ${c}/8`;
+      fetchCountryQuestion();
+    }
+  });
+});
+
+fetchCountryQuestion()
 
 //flagLink.addEventListener('click', function(event) {
   //event.preventDefault();

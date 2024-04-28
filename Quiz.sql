@@ -41,7 +41,7 @@ INSERT INTO CountryImage (CountryID, CountryImage) VALUES (235, 'United_Kingdom_
 INSERT INTO CountryImage (CountryID, CountryImage) VALUES (236, 'USA_location_map.svg');
 INSERT INTO CountryImage (CountryID, CountryImage) VALUES (141, 'Mexico_location_map.svg');
 INSERT INTO CountryImage (CountryID, CountryImage) VALUES (39, 'Canada_location_map.svg');
-39
+
 select*from CountryImage;
 
 CREATE TABLE Answers (

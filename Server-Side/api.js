@@ -49,6 +49,31 @@ app.get('/flagQ', (req, res) => {
   });
 });
 
+
+app.get('/countryQ', (req, res) => {
+  const sql = `
+    SELECT c.CountryName, ci.CountryImage
+    FROM Country c
+    JOIN countryImage ci ON ci.CountryID = c.CountryID
+    ORDER BY RAND()
+    LIMIT 4;
+  `;
+  db.query(sql, (error, results) => {
+    if (error) {
+      console.error("Query error: " + error);
+      res.status(500).json({ error: 'Internal server error' });
+    } else {
+      console.log("Results:", results);
+      const countryData = results.map(result => ({
+        CountryName: result.CountryName,
+        CountryImage: result.CountryImage
+      }));
+      console.log("Country Data:", countryData);
+      res.json(countryData);
+    }
+  });
+});
+
 //test cityQ, flagq and countryQ.html endpoint
 /*app.get('/flagQ', (req, res) => {
   //test endpoint
