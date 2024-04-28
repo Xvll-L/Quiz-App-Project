@@ -25,11 +25,24 @@ CREATE TABLE question (
     FOREIGN KEY (QuizID) REFERENCES Quiz(QuizID)
 );
 
-CREATE TABLE Country (
-    CountryID INT PRIMARY KEY,
-    CountryName VARCHAR(100)
-    /*CountryImage VARCHAR(255)*/
+CREATE TABLE CountryImage (
+	CountryID INT PRIMARY KEY,
+	CountryImage VARCHAR(255),
+	FOREIGN KEY (CountryID) REFERENCES Country(CountryID)
 );
+
+
+INSERT INTO CountryImage (CountryID, CountryImage) VALUES (76, 'France_location_map.svg');
+INSERT INTO CountryImage (CountryID, CountryImage) VALUES (182, 'Russia_location_map.svg');
+INSERT INTO CountryImage (CountryID, CountryImage) VALUES (209, 'Spain_location_map.svg');
+INSERT INTO CountryImage (CountryID, CountryImage) VALUES (214, 'Sweden_location_map.svg');
+INSERT INTO CountryImage (CountryID, CountryImage) VALUES (228, 'Turkey_location_map.svg');
+INSERT INTO CountryImage (CountryID, CountryImage) VALUES (235, 'United_Kingdom_location_map.svg');
+INSERT INTO CountryImage (CountryID, CountryImage) VALUES (236, 'USA_location_map.svg');
+INSERT INTO CountryImage (CountryID, CountryImage) VALUES (141, 'Mexico_location_map.svg');
+INSERT INTO CountryImage (CountryID, CountryImage) VALUES (39, 'Canada_location_map.svg');
+39
+select*from CountryImage;
 
 CREATE TABLE Answers (
     AnswersID INT PRIMARY KEY,
@@ -41,9 +54,26 @@ CREATE TABLE Answers (
 CREATE TABLE Flag (
     FlagID INT PRIMARY KEY,
     flagName VARCHAR(255)
-    /*flagImage VARCHAR(255)*/
+ 
 );
+ALTER TABLE Flag
+ADD COLUMN flagImage VARCHAR(255);
 
+INSERT INTO Flag (FlagID, flagName, flagImage) VALUES (1, 'United States', 'Flag_of_the_United_States.svg');
+INSERT INTO Flag (FlagID, flagName, flagImage) VALUES (2, 'Germany', 'Flag_of_Germany.svg');
+INSERT INTO Flag (FlagID, flagName, flagImage) VALUES (3, 'Portugal', 'Flag_of_Portugal.svg');
+INSERT INTO Flag (FlagID, flagName, flagImage) VALUES (4, 'Sweden', 'Flag_of_Sweden.svg');
+INSERT INTO Flag (FlagID, flagName, flagImage) VALUES (5, 'United Kingdom', 'Flag_of_the_United_Kingdom.svg');
+INSERT INTO Flag (FlagID, flagName, flagImage) VALUES (6, 'Ukraine', 'Flag_of_Ukraine.svg');
+INSERT INTO Flag (FlagID, flagName, flagImage) VALUES (7, 'Turkey', 'Flag_of_Turkey.svg');
+
+
+select * from flag;
+
+select * from flag
+ORDER BY RAND()
+LIMIT 4
+;
 
 CREATE TABLE City (
     cityID INT PRIMARY KEY,

@@ -23,8 +23,8 @@
         #qustions{
             height: 400px;
             width: 500px;
-            background-color: white;
-            border: 1px solid black;
+         
+            border: 0px solid black;
             display: grid;
             place-items: center;
             text-align: center;
@@ -39,7 +39,7 @@
             justify-content: space-between;
         }
 
-        .answers-box{
+        .answers-box-country{
             width: 500px;
             height: 40px;
             background-color: white;
@@ -51,35 +51,63 @@
                 
         }
 
-        .answers-box:hover{
+        .answers-box-country:hover{
             color: white;
             background-color: black;
-            opacity: 1
+            opacity: 1;
         }
             
-        .answers-box:active{
+        .answers-box-country:active{
             color: white;
             background-color: black;
             opacity:0.6;
+        }
+
+        #next-country{
+            width: 120px;
+            height: 40px;
+            background-color: white;
+            border: 1px solid black;
+            font-size: large;
+            opacity: 1;
+        }
+
+        #next-country:hover{
+            background-color: black;
+            color: white;
+            opacity: 1;
+        }
+            
+        #next-country:active{
+            color: white;
+            background-color: black;
+            opacity: 0.6;
+        }
+
+        img{
+            object-fit: contain;
+            border: 1px solid red;
         }
 
     </Style>
 </head>
 <body>      
     <div>
-        <h3 id="count" style="color: white; font-size: 40px;">City quiz - 1/8</h3>
+        <h3 id="count-country" style="color: white; font-size: 40px;">City quiz - 1/8</h3>
     </div>
 
-    <div id="qustions"> 
-       <img src="" alt="">
-    </div>
-
+   
+       <img src="countryIMG/Sweden_location_map.svg" height="500px" width="700px"  alt="">
+    
+    <br>
+    <br>
     <div id="answers">
-        <button id="A1" class="answers-box">A)  Paris</button>
-        <button id="A2" class="answers-box">B)  Paris</button>
-        <button id="A3" class="answers-box">C)  Paris</button>
-        <button id="A4" class="answers-box">D)  Paris</button>
+        <button id="A1" class="answers-box-country">A)  Paris</button>
+        <button id="A2" class="answers-box-country">B)  Paris</button>
+        <button id="A3" class="answers-box-country">C)  Paris</button>
+        <button id="A4" class="answers-box-country">D)  Paris</button>
     </div>
+    <button id="next-country">Next</button>
  <script src="main.js">
 </script> 
 </body>

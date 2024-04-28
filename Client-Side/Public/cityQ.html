@@ -64,12 +64,32 @@
             opacity:0.6;
         }
 
+        #nextq{
+            width: 120px;
+            height: 40px;
+            background-color: white;
+            border: 1px solid black;
+            font-size: large;
+            opacity: 1;
+        }
+
+        #nextq:hover{
+            background-color: black;
+            color: white;
+            opacity: 1;
+        }
+            
+        #nextq:active{
+            color: white;
+            background-color: black;
+            opacity: 0.6;
+        }
+
     </Style>
 </head>
 <body>      
     <div style="height: 200px; border: red 0px solid;">
-        <h3 id="count-city" style="color: white; font-size: 40px;">City quiz - 1/8</h3>
-        <p id="score-city" style="color: white; font-size: 40px;">Score 1/8</p>
+        <h3  style="color: white; font-size: 40px;">|<span id="count-city">City quiz - 1/8 </span> ||| <span  id="score-city"> Score 1/8</span>|</h3>
     </div>
     <br>
     <div id="qustions"> 
@@ -83,6 +103,7 @@
         <button id="A4" class="answers-box"></button>
 
     </div>
+    <button id="nextq">Next</button>
  <script src="main.js">
 </script> 
 </body>

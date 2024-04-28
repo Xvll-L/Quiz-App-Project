@@ -38,7 +38,7 @@
             justify-content: space-between;
         }
 
-        .answers-box{
+        .answers-box-flag{
             width: 500px;
             height: 40px;
             background-color: white;
@@ -50,16 +50,16 @@
                 
         }
 
-        .answers-box:hover{
+        .answers-box-flag:hover{
             color: white;
             background-color: black;
-            opacity: 1
+            opacity: 1;
         }
             
-        .answers-box:active{
+        .answers-box-flag:active{
             color: white;
             background-color: black;
-            opacity:0.6;
+            opacity: 0.6;
         }
 
         img {
@@ -67,17 +67,38 @@
             border: 1px solid black;
         }
 
+        #next-flag{
+            width: 120px;
+            height: 40px;
+            background-color: white;
+            border: 1px solid black;
+            font-size: large;
+            opacity: 1;
+        }
+
+        #next-flag:hover{
+            background-color: black;
+            color: white;
+            opacity: 1;
+        }
+            
+        #next-flag:active{
+            color: white;
+            background-color: black;
+            opacity: 0.6;
+        }
+
     </Style>
 </head>
 <body>      
     <div>
-        <h3 id="count" style="color: white; font-size: 40px;">City quiz - 1/8</h3>
+        <h3 id="flag-count" style="color: white; font-size: 40px;">Flag quiz - 1/8</h3>
 
         
     </div>
 
     <div id="qustions"> 
-        <img src="flagIMG/Flag_of_Portugal.svg" width="500" />
+        <img  id="flagImage" src="flagIMG/Flag_of_Portugal.svg" width="500" />
     </div>
     <br>
     <div id="answers">
@@ -87,7 +108,7 @@
         <button id="A4" class="answers-box-flag">D)  Paris</button>
 
     </div>
-    <button id="next-flag" class="answers-box" style=" width: 120px;">Next</button>
+    <button id="next-flag">Next</button>
  <script src="main.js">
 </script> 
 </body>

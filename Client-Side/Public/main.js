@@ -59,42 +59,95 @@ function fetchQuestion() {
 
 
 
-
 let i = 0;
 answersButtonsCity.forEach(button => {
   button.addEventListener("click", function(e) {
     console.log(e.target);
     if (i < 8) {
       i++;
-      count.textContent = `City quiz - ${i}/8`;
+      countCity.textContent = `City quiz - ${i}/8`;
       // Fetch a new question and update the answer options
       fetchQuestion();
     }
   });
 });
 
-// Fetch the first question when the page loads
-const cityLink = document.getElementById('CITY');
 
-cityLink.addEventListener('click', function() {
-  fetchQuestion(); 
-});
-
+const countFlag = document.querySelector("#flag-count");
+const scoreFlag = document.querySelector("#score-flag");
+const answersButtonsFlag = document.querySelectorAll(".answers-box-flag");
+const flagImageElement = document.querySelector('#flagImage');
 
 function fetchFlags() {
   fetch('http://localhost:8080/api/flagQ')
-    .then(response => response.json)
+    .then(response => response.json())
     .then(data => {
-        asmersFlag = data;
+      console.log('API response:', data);
+      const flag = data[0];
+      console.log('Selected flag:', flag);
+      console.log('Flag name:', flag.FlagName);
+      console.log('Flag image:', flag.flagImage);
 
-        console.log(asmersFlag)
+      flagImageElement.src = 'flagIMG/' + flag.flagImage;
+
+      const flagAnswersOptions = [
+        flag.FlagName,
+        data[1].FlagName,
+        data[2].FlagName,
+        data[3].FlagName
+      ];
+
+      
+
+      // Shuffle the answer options randomly
+      for (let i = flagAnswersOptions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [flagAnswersOptions[i], flagAnswersOptions[j]] = [flagAnswersOptions[j], flagAnswersOptions[i]];
+      }
+
+      console.log('Shuffled answersOptions:', flagAnswersOptions);
+      console.log('answersOptions[0] after shuffling:', flagAnswersOptions[0]);
+
+      // Update the answer buttons with the shuffled options
+      answersButtonsFlag.forEach((button, index) => {
+        button.textContent = flagAnswersOptions[index];
+        button.dataset.correct = (flagAnswersOptions[index] === flag.FlagName);
+      });
     })
     .catch(error => {
-      console.log('Error:', error)
-    })
+      console.log('Error:', error);
+    });
 }
-const flagLink = document.getElementById('FLAG');
 
-flagQuizLink.addEventListener('click', function() {
-  fetchFlags(); 
+let f = 0;
+answersButtonsFlag.forEach(button => {
+  button.addEventListener("click", function(e) {
+    console.log(e.target);
+    if (f < 8) {
+      f++;
+      countFlag.textContent = `Flag quiz - ${i}/8`;
+
+      fetchFlags();
+    }
+  });
 });
+
+
+
+
+
+//flagLink.addEventListener('click', function(event) {
+  //event.preventDefault();
+  fetchFlags(); 
+  console.log("click flag")
+//});
+
+
+//const cityLink = document.getElementById('CITY');
+
+//console.log(cityLink)
+
+//cityLink.addEventListener('click', function(event) {
+  //event.preventDefault();
+  fetchQuestion(); 
+//});
