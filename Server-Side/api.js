@@ -84,6 +84,66 @@ app.get('/countryQ', (req, res) => {
   });
 });*/
 
+///EDIT QUIZ API
+//city
+app.get("/cityEdit", (req, res) => {
+  const sql = 'SELECT * FROM  City LIMIT 4;';
+
+  db.query(sql, (error, results) => {
+    if (error) {
+      console.error("Query error: " + error);
+      res.status(500).json({ error: 'Internal server error' });
+    } else {
+      console.log("Results:", results);
+      const citydata = results.map(result => ({
+        cityID: result.cityID,
+        Cityname: result.cityName
+      }));
+      console.log("###########  Alll  City Data: send   ", citydata, "    ###########");
+      res.json(citydata);
+    }
+  });
+});
+
+//flag
+app.get('/flagEdit', (req, res) => {
+  const sql = 'SELECT * FROM Flag LIMIT 4;'; 
+
+  db.query(sql, (error, results) => {
+    if (error) {
+      console.error("Query error: " + error);
+      res.status(500).json({ error: 'Internal server error' });
+    } else {
+      console.log("Results:", results);
+      const flagData = results.map(result => ({
+        FlagID: result.FlagID,
+        FlagName: result.flagName,
+        flagImage: result.flagImage
+      }));
+      console.log("Flag Data:", flagData);
+      res.json(flagData);
+    }
+  });
+});
+
+
+app.get('/countryEdit', (req, res) => {
+  const sql = `select * from CountryImage limit 4;`;
+  db.query(sql, (error, results) => {
+    if (error) {
+      console.error("Query error: " + error);
+      res.status(500).json({ error: 'Internal server error' });
+    } else {
+      console.log("Results:", results);
+      const countryData = results.map(result => ({
+        CountryID: result.CountryID,
+        CountryImage: result.CountryImage
+      }));
+      console.log("Country Data:", countryData);
+      res.json(countryData);
+    }
+  });
+});
 
 
 module.exports = app;
