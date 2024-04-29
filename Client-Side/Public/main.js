@@ -1,10 +1,10 @@
-
 // quiz page
 const countCity = document.querySelector("#count-city");
 const scoreCity = document.querySelector("#score-city");
 const answersButtonsCity = document.querySelectorAll(".answers-box");
 const countryNameElement = document.getElementById('country-name');
 
+let score = 0;
 
 // Function to fetch a new question and update the answer options for cityQ
 function fetchQuestion() {
@@ -13,16 +13,13 @@ function fetchQuestion() {
     .then(data => {
       console.log('API response:', data);
       
-      
       const country = data[0];
-      
       
       console.log('Selected country:', country);
       console.log('Country name:', country.CountryName);
       console.log('City name#:', country.CityName);
       console.log('City name2#####:', country.Cityname);
       
-    
       countryNameElement.textContent = country.CountryName;
 
       const answersOptions = [
@@ -47,31 +44,42 @@ function fetchQuestion() {
       // Update the answer buttons with the shuffled options (Fisher–Yates shuffle algos)
       answersButtonsCity.forEach((button, index) => {
         button.textContent = answersOptions[index];
-        button.dataset.correct = (answersOptions[index] === country.Cityname);
+        button.setAttribute('data-correct', answersOptions[index] === country.Cityname);
+        button.style.backgroundColor = 'white'; // Reset button color
       });
     })
     .catch(error => {
       console.log('Error:', error);
     });
-
-    
 }
 
-
-
 let i = 0;
+
+// Function to update the count and fetch a new city question
+function updateCityQuestion() {
+  i++;
+  countCity.textContent = `City quiz - ${i}/8`;
+  fetchQuestion();
+}
+
+// Fetch the first city question when the page is loaded
+fetchQuestion();
+
 answersButtonsCity.forEach(button => {
   button.addEventListener("click", function(e) {
     console.log(e.target);
     if (i < 8) {
-      i++;
-      countCity.textContent = `City quiz - ${i}/8`;
-      // Fetch a new question and update the answer options
-      fetchQuestion();
+      if (button.getAttribute('data-correct') === 'true') {
+        button.style.backgroundColor = 'green'; // Set button color to green for correct answer
+        score++; // Increment score
+      } else {
+        button.style.backgroundColor = 'red'; // Set button color to red for incorrect answer
+      }
+      scoreCity.textContent = `Score ${score}/8`; // Update score display
+      updateCityQuestion();
     }
   });
 });
-
 
 const countFlag = document.querySelector("#flag-count");
 const scoreFlag = document.querySelector("#score-flag");
@@ -119,15 +127,19 @@ function fetchFlags() {
     });
 }
 
-let f = 0;
+fetchFlags()
+
+let f = 1;
 answersButtonsFlag.forEach(button => {
   button.addEventListener("click", function(e) {
     console.log(e.target);
     if (f < 8) {
       f++;
-      countFlag.textContent = `Flag quiz - ${i}/8`;
 
-      fetchFlags();
+      console.log("flag count", f)
+      countFlag.textContent = `Flag quiz - ${f}/8`;
+
+      fetchFlags()
     }
   });
 });
@@ -204,5 +216,5 @@ fetchCountryQuestion()
 
 //cityLink.addEventListener('click', function(event) {
   //event.preventDefault();
-  fetchQuestion(); 
+  //fetchQuestion(); 
 //});
