@@ -16,8 +16,8 @@ document.getElementById('quiz-type').addEventListener('change', function() {
   });
   
 
-  function callCityAPI() {
-    fetch('http://localhost:8080/api/cityEdit')
+function callCityAPI() {
+  fetch('http://localhost:8080/api/cityEdit')
       .then(response => response.json())
       .then(data => {
         const nameHeader = document.getElementById('name-val');

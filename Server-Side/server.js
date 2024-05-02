@@ -23,7 +23,7 @@ app.get('/newacc', (req,res) => {
   console.log("######## Username " + username + " Passwrod " + password)
 })
 
-///calls api from staitic page
+///calls api for
 const api = require('./api');
 app.use('/api', api);
 

@@ -76,7 +76,10 @@ answersButtonsCity.forEach(button => {
         button.style.backgroundColor = 'red'; // Set button color to red for incorrect answer
       }
       scoreCity.textContent = `Score ${score}/8`; // Update score display
-      updateCityQuestion();
+   
+      setTimeout(() => {
+        updateCityQuestion();
+      }, 1000);
     }
   });
 });
