@@ -70,13 +70,12 @@ answersButtonsCity.forEach(button => {
     console.log(e.target);
     if (i < 8) {
       if (button.getAttribute('data-correct') === 'true') {
-        button.style.backgroundColor = 'green'; // Set button color to green for correct answer
-        score++; // Increment score
+        button.style.backgroundColor = 'green'; 
+        score++; 
       } else {
-        button.style.backgroundColor = 'red'; // Set button color to red for incorrect answer
+        button.style.backgroundColor = 'red'; 
       }
-      scoreCity.textContent = `Score ${score}/8`; // Update score display
-   
+      scoreCity.textContent = `Score ${score}/8`; 
       setTimeout(() => {
         updateCityQuestion();
       }, 1000);

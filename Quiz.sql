@@ -1,11 +1,14 @@
 /*Create database quiz;*/
 use quiz;
 CREATE TABLE user (
-    userID int NOT NULL AUTO_INCREMENT,
-    userName VARCHAR(255),
-    score INT
+	userID INT AUTO_INCREMENT PRIMARY KEY,
+	userName VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+	score INT DEFAULT 0
 );
 
+SHOW TABLES;
+-- DROP TABLE user;
 
 CREATE TABLE Quiz (
     QuizID INT PRIMARY KEY,
@@ -14,7 +17,7 @@ CREATE TABLE Quiz (
 );
 
 CREATE TABLE question (
-    questionID INT PRIMARY KEY,
+    questionID int NOT NULL AUTO_INCREMENT,
     QuizID INT,
     Answers INT,
     FlagID INT,
@@ -42,7 +45,7 @@ INSERT INTO CountryImage (CountryID, CountryImage) VALUES (236, 'USA_location_ma
 INSERT INTO CountryImage (CountryID, CountryImage) VALUES (141, 'Mexico_location_map.svg');
 INSERT INTO CountryImage (CountryID, CountryImage) VALUES (39, 'Canada_location_map.svg');
 
-select*from CountryImage;
+select*from CountryImage limit 4;
 
 CREATE TABLE Answers (
     AnswersID INT PRIMARY KEY,
@@ -598,3 +601,5 @@ INNER JOIN City ci ON ci.cityID = c.CountryID
 ORDER BY RAND()
 LIMIT 4;
 
+
+SELECT * FROM  City LIMIT 4; 
