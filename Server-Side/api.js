@@ -87,7 +87,7 @@ app.get('/countryQ', (req, res) => {
 ///EDIT QUIZ API
 //city
 app.get("/cityEdit", (req, res) => {
-  const sql = 'SELECT * FROM  City LIMIT 4;';
+  const sql = 'SELECT * FROM  City LIMIT;';
 
   db.query(sql, (error, results) => {
     if (error) {

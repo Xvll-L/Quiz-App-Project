@@ -20,7 +20,7 @@ app.get('/Login', (req, res) => {
   console.log("######## Username " + username + " Password " + password);
 
   // check if the user exists
-  const query = 'SELECT * FROM users WHERE username = ? AND password = ?';
+  const query = 'SELECT * FROM users WHERE userName = ? AND password = ?';
   db.query(query, [username, password], (error, results) => {
     if (error) {
       console.error('Error executing query: ' + error.stack);
