@@ -9,12 +9,36 @@ app.listen(port, () => {
   error.console("Server not runniing: " + error)
 });
 
+
+
+
+
 // Index/ Login page data.
-app.get('/Login', (req,res) => {
-  const username = req.query.Username
-  const password = req.query.Password
-  console.log("######## Username " + username + " Passwrod " + password)
-})
+app.get('/Login', (req, res) => {
+  const username = req.query.Username;
+  const password = req.query.Password;
+  console.log("######## Username " + username + " Password " + password);
+
+  // check if the user exists
+  const query = 'SELECT * FROM users WHERE username = ? AND password = ?';
+  db.query(query, [username, password], (error, results) => {
+    if (error) {
+      console.error('Error executing query: ' + error.stack);
+      res.status(500).send('Internal Server Error');
+    } else {
+      if (results.length > 0) {
+        // User found, login successful
+        console.log('Login successful');
+        res.send('Login successful');
+      } else {
+        // User not found or invalid credentials
+        console.log('Invalid username or password');
+        res.status(401).send('Invalid username or password');
+      }
+    }
+  });
+});
+
 
 //Registration data
 app.get('/newacc', (req,res) => {
