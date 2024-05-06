@@ -30,8 +30,9 @@ app.get('/Login', (req, res) => {
         // User found, login successful
         console.log('Login successful');
         res.send('Login successful');
+        res.redirect('/dashboard.html');
       } else {
-        // User not found or invalid credentials
+        // User not found 
         console.log('Invalid username or password');
         res.status(401).send('Invalid username or password');
       }
