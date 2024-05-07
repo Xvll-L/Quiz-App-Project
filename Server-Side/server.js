@@ -1,16 +1,18 @@
+/// use http://localhost:8080/dashboard.html to reach the port 8080 for the dashbaord to test the quiz
+
+
 const express = require('express');
 const app = express();
 const port = 8080;
 const db = require('./database');
+///const open = require('open');
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+  //open(`http://localhost:${port}`);
 }).on("error", (error) => {
   error.console("Server not runniing: " + error)
 });
-
-
-
 
 
 // Index/ Login page data.
@@ -40,7 +42,6 @@ app.get('/Login', (req, res) => {
   });
 });
 
-
 //Registration data
 app.get('/newacc', (req,res) => {
   const username = req.query.Username
@@ -51,6 +52,15 @@ app.get('/newacc', (req,res) => {
 ///calls api for
 const api = require('./api');
 app.use('/api', api);
+
+const path = require('path');
+app.use(express.static(path.join(__dirname, '..', 'Client-Side', 'Public')));
+
+//app.get('/', (req, res) => {
+  //res.sendFile(path.join(__dirname, '..', 'Client-Side', 'Public', 'dashboard.html'));
+//});
+
+
 
 
 //api test
@@ -75,5 +85,3 @@ app.use('/api', api);
 
 
 
-const path = require('path');
-app.use(express.static(path.join(__dirname, '..', 'Client-Side', 'Public')));

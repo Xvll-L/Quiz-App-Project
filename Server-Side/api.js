@@ -49,7 +49,7 @@ app.get('/flagQ', (req, res) => {
   });
 });
 
-
+//country api
 app.get('/countryQ', (req, res) => {
   const sql = `
     SELECT c.CountryName, ci.CountryImage
@@ -87,7 +87,7 @@ app.get('/countryQ', (req, res) => {
 ///EDIT QUIZ API
 //city
 app.get("/cityEdit", (req, res) => {
-  const sql = 'SELECT * FROM  City LIMIT;';
+  const sql = 'SELECT * FROM  City LIMIT 20; ';
 
   db.query(sql, (error, results) => {
     if (error) {
@@ -126,7 +126,7 @@ app.get('/flagEdit', (req, res) => {
   });
 });
 
-
+//
 app.get('/countryEdit', (req, res) => {
   const sql = `select * from CountryImage limit 4;`;
   db.query(sql, (error, results) => {

@@ -20,6 +20,7 @@ function callCityAPI() {
   fetch('http://localhost:8080/api/cityEdit')
       .then(response => response.json())
       .then(data => {
+        console.log('API response:', data);
         const nameHeader = document.getElementById('name-val');
         nameHeader.textContent = 'City Name';
         
