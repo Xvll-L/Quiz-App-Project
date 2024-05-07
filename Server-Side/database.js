@@ -3,13 +3,13 @@ const mysql = require('mysql');
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '123',
+    password: '1234',
     database: 'quiz'
   });
 // connect to mysql server
-  db.connect((err) => {
-    if (err){
-        console.err("conntection error: " + err)
+  db.connect((error) => {
+    if (error){
+        console.error("conntection error: " + error)
     }
     console.log("sql conection up")
   });

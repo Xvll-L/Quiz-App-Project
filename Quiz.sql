@@ -1,3 +1,5 @@
+-- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password' MySQL Authentication  Fix
+-- FLUSH PRIVILEGES; If the 1st part dont work. add this at the end
 /*Create database quiz;*/
 use quiz;
 CREATE TABLE user (
